@@ -3,6 +3,6 @@ class ApplicationController < ActionController::API
 
   private
     def record_not_found
-      render status: :not_found, json: { errors: "No such shortened url found in record!" }      
+      render status: :not_found, json: { success: false, errors: "No such shortened url found in record!" }      
     end
 end
