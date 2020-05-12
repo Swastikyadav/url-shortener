@@ -1,5 +1,5 @@
 class Link < ApplicationRecord
-  validates :url, presence: true
+  validates :url, presence: true, uniqueness: true
   validates :slug, presence: true, length: { is: 8 }, uniqueness: true
 
   def generate_slug
