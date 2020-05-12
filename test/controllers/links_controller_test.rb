@@ -1,7 +1,17 @@
 require 'test_helper'
 
 class LinksControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :links
+
+  test "should create new url with slug" do
+    post links_path, params: {link: { url: "https://testurl.com" } }
+    assert_response :success
+    json_response = JSON.parse(response.body)
+    assert_equal true, json_response["success"]
+  end
+
+  test "should get show" do
+    get "/links/#{links(:one).slug}"
+    assert_response :success
+  end
 end
