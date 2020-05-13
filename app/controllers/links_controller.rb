@@ -3,11 +3,11 @@ class LinksController < ApplicationController
   def create
     @existing_link = Link.where(url: params[:link][:url]).first
     
-    if !!@existing_link
+    if @existing_link
       render status: :ok, json: { success: true, slug: @existing_link.slug }
     else
       @link = Link.new(link_params)
-      @link.slug = @link.generate_slug
+      @link.generate_slug
       if @link.save
         render status: :ok, json: { success: true, slug: @link.slug }
       else

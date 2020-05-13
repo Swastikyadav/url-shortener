@@ -1,9 +1,10 @@
 namespace :app do
-  task :encode => :environment do
-    include Rails.application.routes.url_helpers
-    request_link = links_url(:host => "http://localhost:3000")
+  session = ActionDispatch::Integration::Session.new(Rails.application)
+  routes = Rails.application.routes.url_helpers
 
-    session = ActionDispatch::Integration::Session.new(Rails.application)
+  task :encode => :environment do
+    request_link = routes.links_url(:host => "http://localhost:3000")
+
     session.post request_link, params: { "link": { "url": ENV['URL'] } }
     response = JSON.parse(session.response.body)
 
@@ -13,12 +14,10 @@ namespace :app do
   end
 
   task :decode => :environment do
-    include Rails.application.routes.url_helpers
-    request_link = links_url(:host => "http://localhost:3000")
+    request_link = routes.links_url(:host => "http://localhost:3000")
     
     given_slug = ENV['SHORTURL'].split('/').last
 
-    session = ActionDispatch::Integration::Session.new(Rails.application)
     session.get "#{request_link}/#{given_slug}"
     response = JSON.parse(session.response.body)
 

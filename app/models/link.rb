@@ -3,6 +3,10 @@ class Link < ApplicationRecord
   validates :slug, presence: true, length: { is: 8 }, uniqueness: true
 
   def generate_slug
-    SecureRandom.alphanumeric(8)
+    loop do
+      slug = SecureRandom.alphanumeric(8)
+      self.slug = slug
+      break slug unless Link.where(slug: slug).exists?
+    end
   end
 end
