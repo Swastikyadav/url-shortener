@@ -16,7 +16,7 @@ namespace :app do
     include Rails.application.routes.url_helpers
     request_link = links_url(:host => "http://localhost:3000")
     
-    given_slug = ENV['SHORTURL'].last(8)
+    given_slug = ENV['SHORTURL'].split('/').last
 
     session = ActionDispatch::Integration::Session.new(Rails.application)
     session.get "#{request_link}/#{given_slug}"
