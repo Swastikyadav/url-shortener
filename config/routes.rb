@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get "/links/:slug" => "links#show"
-  post "/links" => "links#create"
+  get "/links", to: "links#index"
+  resources :links, only: [:create, :show], param: :slug
 end

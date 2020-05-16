@@ -11,7 +11,7 @@ class LinksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get "/links/#{links(:one).slug}"
+    get link_path(links(:one).slug)
     assert_response :success
   end
 end
