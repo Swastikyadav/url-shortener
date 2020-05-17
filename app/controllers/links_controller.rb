@@ -25,11 +25,18 @@ class LinksController < ApplicationController
     @links = Link.order(updated_at: :desc)
   end
 
+  def update
+    @link = Link.find_by!(slug: params[:slug])
+    if @link.update(link_params)
+      render status: :ok, json: { links: Link.order(updated_at: :desc) }
+    end
+  end
+
   private
 
     def link_params
       params.require(:link)
-        .permit(:url)
+        .permit(:url, :pinned)
     end
 
 end
