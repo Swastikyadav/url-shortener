@@ -21,6 +21,10 @@ class LinksController < ApplicationController
     render status: :ok, json: { original_url: @link.url }
   end
 
+  def index
+    render
+  end
+
   private
 
     def link_params
