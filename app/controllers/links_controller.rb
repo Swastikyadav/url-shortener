@@ -22,7 +22,7 @@ class LinksController < ApplicationController
   end
 
   def index
-    render
+    @links = Link.order(updated_at: :desc)
   end
 
   private

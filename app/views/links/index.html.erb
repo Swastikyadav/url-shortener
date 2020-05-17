@@ -1,2 +1,4 @@
-<h2>Hello Index Page</h2>
-<%= react_component("Main", { name: "Url-Shortener" }) %>
+<div class="container mt-4 mb-4">
+  <h2 class="text-primary text-center">List of all shortened links</h2>
+</div>
+<%= react_component("Lists", { links: @links }) %>
