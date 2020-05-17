@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :load_links, only: [:index, :update]
 
   def create
     @existing_link = Link.where(url: params[:link][:url]).first
@@ -22,13 +23,13 @@ class LinksController < ApplicationController
   end
 
   def index
-    @links = Link.order(updated_at: :desc)
+    render
   end
 
   def update
     @link = Link.find_by!(slug: params[:slug])
     if @link.update(link_params)
-      render status: :ok, json: { links: Link.order(updated_at: :desc) }
+      render status: :ok, json: { links: @links }
     end
   end
 
@@ -37,6 +38,10 @@ class LinksController < ApplicationController
     def link_params
       params.require(:link)
         .permit(:url, :pinned)
+    end
+
+    def load_links
+      @links = Link.order(updated_at: :desc)
     end
 
 end
