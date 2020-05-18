@@ -7,8 +7,11 @@ default: &default
 development:
   <<: *default
   database: url-shortener
- 
 
 test:
+  <<: *default
+  database: url-shortener
+
+production:
   <<: *default
   database: url-shortener
