@@ -14,5 +14,5 @@ test:
 production:
   <<: *default
   database: url_shortener_production
-  username: url_shortener
-  password: <%= ENV['FBCLONE_DATABASE_PASSWORD'] %>
+  username: url-shortener
+  password: <%= ENV['URL-SHORTENER_DATABASE_PASSWORD'] %>
