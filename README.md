@@ -7,6 +7,7 @@ This is a url shortener API, build with Ruby On Rails 6.
 - Clone this repo to your local system.
 - Execute `rails db:create` to create the database for the first time.
 - Execute `rails db:migrate` to migrate the database and create tables in your database.
+- Execute `yarn` to install frontend dependencies.
 
 ## Testing the app
 
@@ -37,7 +38,7 @@ Shorten new URL:
   - Params - { "link": { "url": "https://desiredurl.com/" } }
 
 Get Original URL from shortened one:
-  - EndPoint - `/links/https://short.is/tkLo2367`, GET
+  - EndPoint - `/links/tkLo2367`, GET
   - Params - No params
 
 THANK YOU
