@@ -1,17 +1,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
-  timeout: 5000
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: url-shortener
+  database: url-shortener_development
 
 test:
   <<: *default
-  database: url-shortener
+  database: url-shortener_test
 
 production:
   <<: *default
-  database: url-shortener
+  database: url_shortener_production
+  username: url_shortener
+  password: <%= ENV['FBCLONE_DATABASE_PASSWORD'] %>
