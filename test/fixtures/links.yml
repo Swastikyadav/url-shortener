@@ -3,3 +3,4 @@
 one:
   url: "https://swastikyadav.com"
   slug: "a1b2c3d4"
+  pinned: false
