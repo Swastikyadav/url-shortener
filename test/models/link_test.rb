@@ -34,4 +34,22 @@ class LinkTest < ActiveSupport::TestCase
     assert_not link2.valid?
     assert_equal ["Url has already been taken"], link2.errors.full_messages
   end
+
+  test "pinned should include either true or false" do
+    links(:one).pinned = nil
+    assert_not links(:one).valid?
+    assert_equal ["Pinned is not included in the list"], links(:one).errors.full_messages
+  end
+
+  test "clicked should be present" do
+    links(:one).clicked = ""
+    assert_not links(:one).valid?
+    assert_equal ["Clicked can't be blank", "Clicked is not a number"], links(:one).errors.full_messages
+  end
+
+  test "clicked should be of integer type" do
+    links(:one).clicked = 5.2
+    assert_not links(:one).valid?
+    assert_equal ["Clicked must be an integer"], links(:one).errors.full_messages
+  end
 end
