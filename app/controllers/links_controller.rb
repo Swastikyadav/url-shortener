@@ -19,7 +19,11 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find_by!(slug: params[:slug])
-    render status: :ok, json: { original_url: @link.url }
+    @link.update(clicked: @link.clicked + 1)
+    respond_to do |format|
+      format.html { redirect_to @link.url }
+      format.json { render status: :ok, json: { original_url: @link.url, clicked: @link.clicked } }
+    end
   end
 
   def index

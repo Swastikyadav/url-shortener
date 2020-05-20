@@ -19,7 +19,7 @@ namespace :app do
   task :decode => :environment do
     given_slug = ENV['SHORTURL'].split('/').last
 
-    status_code = session.get "http://localhost:3000#{routes.link_path(given_slug)}"
+    status_code = session.get "http://localhost:3000#{routes.link_path(given_slug)}.json"
     response = JSON.parse(session.response.body)
 
     if status_code == 200
