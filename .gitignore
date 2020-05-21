@@ -32,3 +32,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore local ENV file
+/config/local_env.yml

@@ -29,6 +29,7 @@ class LinksController < ApplicationController
   end
 
   def index
+    puts "Here: #{ENV['GMAIL_USERNAME']}"
     render
   end
 
