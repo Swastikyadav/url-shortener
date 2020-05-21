@@ -24,6 +24,9 @@ gem 'puma', '~> 4.1'
 gem 'sidekiq'
 gem 'sinatra', github: 'sinatra/sinatra'
 
+# Use Whenever gem for scheduler
+gem 'whenever', require: false
+
 # Transpile app-like JavaScript
 gem 'webpacker'
 
