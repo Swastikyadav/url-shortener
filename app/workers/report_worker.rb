@@ -15,5 +15,6 @@ class ReportWorker
         ]
       end
     end
+    JobMailer.with(email: "swastikyadav.dev@gmail.com").send_csv.deliver_now
   end
 end
