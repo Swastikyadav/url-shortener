@@ -35,6 +35,8 @@ class LinksController < ApplicationController
   def update
     if @link.update(link_params)
       render status: :ok, json: { links: @links }
+    else
+      render status: :unprocessable_entity, json: { errors: @link.errors.full_messages }
     end
   end
 

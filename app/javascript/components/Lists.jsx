@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../../assets/stylesheets/application.scss"
 
 const Links = props => {
   const [links, setLinks] = useState(props.links);
@@ -47,7 +48,10 @@ const Links = props => {
                   &#128204;
                 </th>
                 <td>{ url }</td>
-                <td onClick={() => handleLinkClick(slug)}>
+                <td
+                  onClick={() => handleLinkClick(slug)}
+                  className="hoverable"
+                >
                   {window.location.origin}/links/{ slug }
                 </td>
                 <td>{clicked}</td>
