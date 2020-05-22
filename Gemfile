@@ -20,6 +20,13 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use sidekiq for background processing
+gem 'sidekiq'
+gem 'sinatra', github: 'sinatra/sinatra'
+
+# Use Whenever gem for scheduler
+gem 'whenever', require: false
+
 # Transpile app-like JavaScript
 gem 'webpacker'
 

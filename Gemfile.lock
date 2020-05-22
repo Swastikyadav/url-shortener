@@ -1,3 +1,15 @@
+GIT
+  remote: https://github.com/sinatra/sinatra.git
+  revision: 91477e6dad7c9d8eb1c358e47b9d83b73d626f84
+  specs:
+    rack-protection (2.1.0)
+      rack
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -70,6 +82,7 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
+    chronic (0.10.2)
     concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
     crass (1.0.6)
@@ -97,6 +110,8 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.1)
     msgpack (1.3.3)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -145,6 +160,8 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    redis (4.1.4)
+    ruby2_keywords (0.0.2)
     ruby_dep (1.5.0)
     sassc (2.3.0)
       ffi (~> 1.9)
@@ -155,6 +172,11 @@ GEM
       sprockets-rails
       tilt
     semantic_range (2.3.0)
+    sidekiq (6.0.7)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -179,6 +201,8 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     zeitwerk (2.3.0)
 
 PLATFORMS
@@ -193,10 +217,13 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
   react-rails
+  sidekiq
+  sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
   webpacker
+  whenever
 
 RUBY VERSION
    ruby 2.6.5p114

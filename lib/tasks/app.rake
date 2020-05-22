@@ -28,4 +28,8 @@ namespace :app do
       puts "No original url was found for the short url https://short.is/#{given_slug}"
     end
   end
+
+  task :send_mail => :environment do
+    ReportWorker.perform_async()
+  end
 end
